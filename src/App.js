@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import React, { useState } from 'react'
 import './App.css';
 
 function App() {
+  const [personagem, setPersonagem] = useState('Scooby-Doo')
+  const [qtdDeCasosResolvidos, setQtdDeCasosResolvidos] = useState(0)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      Meu personagem {personagem}
+      <button data-testid="botao-muda" onClick={() => setPersonagem('Salsicha')}>Muda personagem</button>
+
+      Quantidade de casos resolvidos: {qtdDeCasosResolvidos}
+      <button
+        data-testid="botao-resolve-caso"
+        onClick={
+          () => setQtdDeCasosResolvidos(qtdDeCasosResolvidos + 1)
+        }>
+        Resolve caso
+      </button>
     </div>
   );
 }
